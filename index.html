@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Premium - Your Journey to Ultimate Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #040112;
+            background: linear-gradient(135deg, hsl(229, 93%, 45%) 0%, #170247 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #00008B(255, 255, 255, 0.1);
+            backdrop-filter:dark blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #b7de08;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            color: #0ec924;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #09d390;
+            padding-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: #0b066d;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: #d9c7db;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 65, 108, 0.6);
+        }
+        .btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        section {
+            padding: 80px 0;
+            background: #c8bcc7;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #030a1c;
+        }
+        .importance, .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: #0b67c3;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .subscription {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+        }
+        .subscription .container {
+            max-width: 600px;
+        }
+        .subscription h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .subscription p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .subscription-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .subscription-form input, .subscription-form select {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">FitLife Premium</div>
+            <ul>
+                <li><a href="#importance">Importance</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#subscription">Subscribe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Life with Premium Fitness</h1>
+            <p>Join our exclusive community and unlock your full potential. Experience the premium difference in fitness and wellness.
+            </p>
+            <a href="#subscription" class="btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <section id="importance">
+        <div class="container">
+            <h2 class="section-title">The Importance of Regular Gym Workouts</h2>
+            <div class="importance">
+                <div class="card">
+                    <h3>Physical Strength & Endurance</h3>
+                    <p>Regular gym sessions build muscle strength, improve cardiovascular health, and enhance overall physical endurance. Consistent training leads to better body composition and increased energy levels.</p>
+                </div>
+                <div class="card">
+                    <h3>Mental Health Benefits</h3>
+                    <p>Exercise releases endorphins, reducing stress and anxiety. Gym workouts provide a structured routine that improves focus, boosts mood, and helps combat depression.</p>
+                </div>
+                <div class="card">
+                    <h3>Discipline & Goal Setting</h3>
+                    <p>The gym teaches discipline and goal-oriented thinking. Setting and achieving fitness milestones translates to success in other areas of life, building confidence and determination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">Stay Away from Health Diseases</h2>
+            <div class="benefits">
+                <div class="card">
+                    <h3>Prevent Heart Disease</h3>
+                    <p>Regular exercise strengthens the heart, improves circulation, and reduces the risk of cardiovascular diseases. Maintain healthy blood pressure and cholesterol levels through consistent gym routines.</p>
+                </div>
+                <div class="card">
+                    <h3>Combat Diabetes</h3>
+                    <p>Physical activity helps regulate blood sugar levels and improves insulin sensitivity. Gym workouts can prevent or manage type 2 diabetes by promoting weight loss and better metabolic health.</p>
+                </div>
+                <div class="card">
+                    <h3>Reduce Cancer Risk</h3>
+                    <p>Studies show that regular exercise can lower the risk of certain cancers, including breast and colon cancer. Maintain a healthy weight and boost your immune system through strength training and cardio.</p>
+                </div>
+                <div class="card">
+                    <h3>Prevent Osteoporosis</h3>
+                    <p>Weight-bearing exercises in the gym strengthen bones and prevent bone loss. Build bone density and reduce the risk of fractures as you age with proper resistance training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscription" class="subscription">
+        <div class="container">
+            <h2>Join FitLife Premium Today</h2>
+            <p>Unlock exclusive access to premium workouts, personalized training plans, and expert nutrition guidance. Transform your body and mind with our comprehensive fitness program.</p>
+            <form class="subscription-form">
+                <input type="email" placeholder="Enter your email" required>
+                <select required>
+                    <option value="">Select Plan</option>
+                    <option value="basic">Basic - $29/month</option>
+                    <option value="premium">Premium - $49/month</option>
+                    <option value="vip">VIP - $79/month</option>
+                </select>
+                <button type="submit" class="btn">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FitLife Premium. All rights reserved. | Your path to ultimate fitness starts here.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handler (placeholder for backend integration)
+        document.querySelector('.subscription-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            const plan = e.target.querySelector('select').value;
+            alert(`Thank you for subscribing to the ${plan} plan! Your premium fitness journey begins now. We'll send details to ${email}.`);
+            // In a real application, this would send data to a backend
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in animation to cards and sections
+        document.querySelectorAll('.card, .section-title').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add interactive counter for subscription section
+        let counter = 0;
+        const counterElement = document.createElement('div');
+        counterElement.style.fontSize = '2rem';
+        counterElement.style.fontWeight = 'bold';
+        counterElement.style.color = '#fff';
+        counterElement.style.marginBottom = '1rem';
+        counterElement.textContent = '0+ Happy Members';
+        document.querySelector('.subscription .container').prepend(counterElement);
+
+        function animateCounter() {
+            const target = 12500; // Example number
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            const timer = setInterval(() => {
+                counter += step;
+                if (counter >= target) {
+                    counter = target;
+                    clearInterval(timer);
+                }
+                counterElement.textContent = Math.floor(counter).toLocaleString() + '+ Happy Members';
+            }, 16);
+        }
+
+        // Trigger counter animation when subscription section comes into view
+        const subscriptionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    subscriptionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        subscriptionObserver.observe(document.querySelector('#subscription'));
+
+        // Add particle effect to hero section
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 255, 255, 0.5)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = 'float 6s linear infinite';
+            document.querySelector('.hero').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        setInterval(createParticle, 300);
+
+        // Add CSS animation for particles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                to {
+                    transform: translateY(-100vh);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
